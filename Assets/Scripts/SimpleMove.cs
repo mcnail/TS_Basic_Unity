@@ -51,10 +51,8 @@ public class SimpleMove : MonoBehaviour
 
         //위치를 계속해서 바꾼다
         //P = p0 + vt(방향,길이)(시간)
-        //transform.position = transform.position + dir * speed * Time.deltaTime;
         controller.Move(dir * speed * Time.deltaTime);
-        //transform.position += dir;
-        //transform.Translate(dir * speed * Time.deltaTime);
+
         //내가 지정한 방향으로 이동하고 싶다!
     }
 }
