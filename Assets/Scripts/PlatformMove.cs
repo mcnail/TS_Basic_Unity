@@ -36,7 +36,12 @@ public class PlatformMove : MonoBehaviour
     {
         //플레이어의 캐릭터 컨트롤러에 델타만큼 움직여라
         deltaPos = curPos - prevPos;
-        controller.Move(deltaPos);  
+        if (controller != null) // != 같지않을때,  == 같을때 
+        { 
+            //컨트롤러가 비어있지않다면,
+            //플레이어의 캐릭터 컨트롤러의 정보가 담겼다면
+            controller.Move(deltaPos);      
+        }
     }
     //센서영역에 들어왔다!
     private void OnTriggerEnter(Collider other)
