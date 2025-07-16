@@ -20,12 +20,12 @@ public class PlatformMove : MonoBehaviour
     void Update()
     {
         //이동속도를 계산 > 플레이어.cc.Move()
-        print("prevPos : " + transform.position);   //문자열을 합쳐서 출력
+        //print("prevPos : " + transform.position);   //문자열을 합쳐서 출력
         prevPos = transform.position;
         //P=p0 + vt
         transform.position = transform.position + dir * speed * Time.deltaTime;
 
-        print("curPos : " + transform.position);
+        //print("curPos : " + transform.position);
         curPos = transform.position;
     }
 
@@ -46,11 +46,16 @@ public class PlatformMove : MonoBehaviour
     //센서영역에 들어왔다!
     private void OnTriggerEnter(Collider other)
     {
+        print(other.name);
         //센서영역에 들어온 게임오브젝트 = other
         if(other.CompareTag("Player"))
         {
             //플레이어가 맞다면, 캐릭터 컨트롤러 정보를 담아줘
             controller = other.GetComponent<CharacterController>();
+        }
+        else //if의 조건이 아니라면 = False라면
+        {
+            speed = 0;
         }
     }
     //센서영역에서 빠져나갔다!
@@ -61,6 +66,10 @@ public class PlatformMove : MonoBehaviour
         {
             //플레이어가 맞다면, 캐릭터 컨트롤러 정보를 지워줘
             controller = null;
+        }
+        else //if의 조건이 아니라면 = False라면
+        {
+            speed = 5;
         }
     }
 }
