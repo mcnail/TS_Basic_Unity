@@ -13,7 +13,7 @@ public class PlatformMove : MonoBehaviour
     void Start()
     {
         //오브젝트 탐색 : 게임오브젝트 가 가진 컴포넌트를 찾아라
-        controller = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
+        //controller = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>();
     }
 
     // 매 프레임이 생성될때(새로고침 될때) 한번 실행하는 코드 = 지속적인 변화
@@ -37,5 +37,25 @@ public class PlatformMove : MonoBehaviour
         //플레이어의 캐릭터 컨트롤러에 델타만큼 움직여라
         deltaPos = curPos - prevPos;
         controller.Move(deltaPos);  
+    }
+    //센서영역에 들어왔다!
+    private void OnTriggerEnter(Collider other)
+    {
+        //센서영역에 들어온 게임오브젝트 = other
+        if(other.CompareTag("Player"))
+        {
+            //플레이어가 맞다면, 캐릭터 컨트롤러 정보를 담아줘
+            controller = other.GetComponent<CharacterController>();
+        }
+    }
+    //센서영역에서 빠져나갔다!
+    private void OnTriggerExit(Collider other)
+    {
+        //센서영역에 빠져나간 게임오브젝트 = other
+        if (other.CompareTag("Player"))
+        {
+            //플레이어가 맞다면, 캐릭터 컨트롤러 정보를 지워줘
+            controller = null;
+        }
     }
 }
