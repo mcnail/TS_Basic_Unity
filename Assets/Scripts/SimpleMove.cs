@@ -25,11 +25,16 @@ public class SimpleMove : MonoBehaviour
     void Update()
     {
         //내가 입력한 방향으로 이동하고 싶다!
-        float h = Input.GetAxis("Horizontal");  //a(-1)나 d(+1)를 누를때, 아무것도 안누를때 0
-        float v = Input.GetAxis("Vertical");  //s(-1)나 w(+1)를 누를때
+        //(-1)나 (+1)를 누를때, 아무것도 안누를때 0
+        float h = Input.GetAxis("Horizontal");  
+        float v = Input.GetAxis("Vertical");  
 
         dir = new Vector3(h, 0, v);
         //정규화 Normalize = 방향을 유지하면서 벡터의 길이를 1로 고정 
+        dir.Normalize();
+
+        dir = Camera.main.transform.TransformDirection(dir);
+        dir.y = 0;
         dir.Normalize();
 
         //(캐릭터컨트롤러가) 바닥에 닿아있는게 맞냐?
