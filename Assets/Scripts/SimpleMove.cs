@@ -1,58 +1,58 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
-//Æ÷Áö¼ÇÀÇ °ªÀÌ ¹Ù²ï´Ù
+//í¬ì§€ì…˜ì˜ ê°’ì´ ë°”ë€ë‹¤
 public class SimpleMove : MonoBehaviour
 {
-    // string : "³»¿ë" , int : Á¤¼ö(¼Ò¼öÁ¡ x)
-    //ÀÚ·áÇü float : ½Ç¼ö(¼Ò¼öÁ¡ o),  Vector3 : º¤ÅÍ(x,y,z)
+    // string : "ë‚´ìš©" , int : ì •ìˆ˜(ì†Œìˆ˜ì  x)
+    //ìë£Œí˜• float : ì‹¤ìˆ˜(ì†Œìˆ˜ì  o),  Vector3 : ë²¡í„°(x,y,z)
     public Vector3 dir = new Vector3(0, 0, 1);
     public float speed = 1.0f;  // m/s 
 
-    public float jumpPower = 5f; //Á¡ÇÁ(¼öÁ÷) Èû
+    public float jumpPower = 5f; //ì í”„(ìˆ˜ì§) í˜
     public bool isGrounded = false; //boolean : true(1),false(0)
-    public float gravity = -9.8f;   //Áß·Â
-    public float yVelocity = 0; //yÀÇ º¯È­
+    public float gravity = -9.8f;   //ì¤‘ë ¥
+    public float yVelocity = 0; //yì˜ ë³€í™”
 
-    CharacterController controller;    //º¯¼ö¼±¾ğ : ºó±×¸©
+    CharacterController controller;    //ë³€ìˆ˜ì„ ì–¸ : ë¹ˆê·¸ë¦‡
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        controller = GetComponent<CharacterController>(); //±×¸©¿¡ µ¥ÀÌÅÍ¸¦ ´ã±â
+        controller = GetComponent<CharacterController>(); //ê·¸ë¦‡ì— ë°ì´í„°ë¥¼ ë‹´ê¸°
     }
 
     // Update is called once per frame
     void Update()
     {
-        //³»°¡ ÀÔ·ÂÇÑ ¹æÇâÀ¸·Î ÀÌµ¿ÇÏ°í ½Í´Ù!
-        float h = Input.GetAxis("Horizontal");  //a(-1)³ª d(+1)¸¦ ´©¸¦¶§, ¾Æ¹«°Íµµ ¾È´©¸¦¶§ 0
-        float v = Input.GetAxis("Vertical");  //s(-1)³ª w(+1)¸¦ ´©¸¦¶§
+        //ë‚´ê°€ ì…ë ¥í•œ ë°©í–¥ìœ¼ë¡œ ì´ë™í•˜ê³  ì‹¶ë‹¤!
+        float h = Input.GetAxis("Horizontal");  //a(-1)ë‚˜ d(+1)ë¥¼ ëˆ„ë¥¼ë•Œ, ì•„ë¬´ê²ƒë„ ì•ˆëˆ„ë¥¼ë•Œ 0
+        float v = Input.GetAxis("Vertical");  //s(-1)ë‚˜ w(+1)ë¥¼ ëˆ„ë¥¼ë•Œ
 
         dir = new Vector3(h, 0, v);
-        //Á¤±ÔÈ­ Normalize = ¹æÇâÀ» À¯ÁöÇÏ¸é¼­ º¤ÅÍÀÇ ±æÀÌ¸¦ 1·Î °íÁ¤ 
+        //ì •ê·œí™” Normalize = ë°©í–¥ì„ ìœ ì§€í•˜ë©´ì„œ ë²¡í„°ì˜ ê¸¸ì´ë¥¼ 1ë¡œ ê³ ì • 
         dir.Normalize();
 
-        //(Ä³¸¯ÅÍÄÁÆ®·Ñ·¯°¡) ¹Ù´Ú¿¡ ´ê¾ÆÀÖ´Â°Ô ¸Â³Ä?
+        //(ìºë¦­í„°ì»¨íŠ¸ë¡¤ëŸ¬ê°€) ë°”ë‹¥ì— ë‹¿ì•„ìˆëŠ”ê²Œ ë§ëƒ?
         if (controller.collisionFlags == CollisionFlags.Below)
         { 
             isGrounded = true;
-            yVelocity = 0;  //¹Ù´Ú¿¡ ´êÀ¸¸é ¾Æ·¡·Î ¸ø³»·Á°¡°Ô 0
+            yVelocity = 0;  //ë°”ë‹¥ì— ë‹¿ìœ¼ë©´ ì•„ë˜ë¡œ ëª»ë‚´ë ¤ê°€ê²Œ 0
         }
 
-        //¹Ù´Ú¿¡ ´ê¾ÆÀÖ´Â°Ô ¸Â°í, Á¡ÇÁÅ°¸¦ ´©¸¥°Ô ¸Â´Ù¸é
+        //ë°”ë‹¥ì— ë‹¿ì•„ìˆëŠ”ê²Œ ë§ê³ , ì í”„í‚¤ë¥¼ ëˆ„ë¥¸ê²Œ ë§ë‹¤ë©´
         if (isGrounded == true && Input.GetButtonDown("Jump"))
         {
             yVelocity = jumpPower;
-            isGrounded = false; //¹Ù´Ú¿¡ ´êÀº°Ô ¾Æ´Ï´Ù
+            isGrounded = false; //ë°”ë‹¥ì— ë‹¿ì€ê²Œ ì•„ë‹ˆë‹¤
         }
-        //Áß·ÂÀ» Àû¿ëÇØ¶ó
+        //ì¤‘ë ¥ì„ ì ìš©í•´ë¼
         yVelocity = yVelocity + gravity * Time.deltaTime;
         dir.y = yVelocity;
 
-        //À§Ä¡¸¦ °è¼ÓÇØ¼­ ¹Ù²Û´Ù
-        //P = p0 + vt(¹æÇâ,±æÀÌ)(½Ã°£)
+        //ìœ„ì¹˜ë¥¼ ê³„ì†í•´ì„œ ë°”ê¾¼ë‹¤
+        //P = p0 + vt(ë°©í–¥,ê¸¸ì´)(ì‹œê°„)
         controller.Move(dir * speed * Time.deltaTime);
 
-        //³»°¡ ÁöÁ¤ÇÑ ¹æÇâÀ¸·Î ÀÌµ¿ÇÏ°í ½Í´Ù!
+        //ë‚´ê°€ ì§€ì •í•œ ë°©í–¥ìœ¼ë¡œ ì´ë™í•˜ê³  ì‹¶ë‹¤!
     }
 }

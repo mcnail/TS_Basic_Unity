@@ -1,19 +1,19 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
-//ÀÏÁ¤ÇÑ ¹æÇâÀ¸·Î ¿òÁ÷ÀÎ´Ù
+//ì¼ì •í•œ ë°©í–¥ìœ¼ë¡œ ì›€ì§ì¸ë‹¤
 public class PlatformMove : MonoBehaviour
 {
-    //¹æÇâ(º¤ÅÍ Vector3)
+    //ë°©í–¥(ë²¡í„° Vector3)
     public Vector3 dir = Vector3.forward; //x0,y0,z1
-    //¼Ó·Â(speed > float)
+    //ì†ë ¥(speed > float)
     public float speed = 5f;
-    // ½ÇÇàÇÒ¶§ È¤Àº ¾À¿¡ Ã³À½ »ý¼ºµÉ¶§ ½ÇÇàµÇ´Â ÄÚµå
+    // ì‹¤í–‰í• ë•Œ í˜¹ì€ ì”¬ì— ì²˜ìŒ ìƒì„±ë ë•Œ ì‹¤í–‰ë˜ëŠ” ì½”ë“œ
     void Start()
     {
         
     }
 
-    // ¸Å ÇÁ·¹ÀÓÀÌ »ý¼ºµÉ¶§(»õ·Î°íÄ§ µÉ¶§) ÇÑ¹ø ½ÇÇàÇÏ´Â ÄÚµå = Áö¼ÓÀûÀÎ º¯È­
+    // ë§¤ í”„ë ˆìž„ì´ ìƒì„±ë ë•Œ(ìƒˆë¡œê³ ì¹¨ ë ë•Œ) í•œë²ˆ ì‹¤í–‰í•˜ëŠ” ì½”ë“œ = ì§€ì†ì ì¸ ë³€í™”
     void Update()
     {
         //P=p0 + vt

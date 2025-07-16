@@ -1,17 +1,17 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 
-// ÄÃ·¯¸¦ ¹Ù²Ù°í ½Í´Ù.
+// ì»¬ëŸ¬ë¥¼ ë°”ê¾¸ê³  ì‹¶ë‹¤.
 public class ColorChange : MonoBehaviour
 {
-    Renderer rend; //·»´õ·¯ ÄÄÆ÷³ÍÆ®
+    Renderer rend; //ë Œë”ëŸ¬ ì»´í¬ë„ŒíŠ¸
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //³»°¡(gameobject) °¡Áö°í ÀÖ´Â ·»´õ·¯(mesh renderer)¸¦ º¯¼ö¿¡ ´ã¾ÆÁà!
+        //ë‚´ê°€(gameobject) ê°€ì§€ê³  ìˆëŠ” ë Œë”ëŸ¬(mesh renderer)ë¥¼ ë³€ìˆ˜ì— ë‹´ì•„ì¤˜!
         rend = GetComponent<Renderer>();
-        //·»´õ·¯°¡ °¡Áö°íÀÖ´Â ¸ÓÆ¼¸®¾óÀÇ ÄÃ·¯¸¦ »¡°­À¸·Î ¹Ù²ãÁà.
+        //ë Œë”ëŸ¬ê°€ ê°€ì§€ê³ ìˆëŠ” ë¨¸í‹°ë¦¬ì–¼ì˜ ì»¬ëŸ¬ë¥¼ ë¹¨ê°•ìœ¼ë¡œ ë°”ê¿”ì¤˜.
         rend.material.color = Color.red;
         transform.position = new Vector3(100, 20, -50);    
         rend.gameObject.SetActive(false);

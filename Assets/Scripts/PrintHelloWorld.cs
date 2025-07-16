@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class PrintHelloWorld : MonoBehaviour
 {
@@ -6,12 +6,12 @@ public class PrintHelloWorld : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //ÃÊ±âÈ­ : ÃÊ±â °ª ¼ÂÆÃ
-        // ÁÖ¼® : ¹®ÀÚ´Â "" ½Öµû¿ÈÇ¥·Î °¨½Ñ´Ù. 
-        // print´Â ±Û¾¾¸¦ Ãâ·ÂÇØÁÖ´Â ±â´ÉÀÌ´Ù.
+        //ì´ˆê¸°í™” : ì´ˆê¸° ê°’ ì…‹íŒ…
+        // ì£¼ì„ : ë¬¸ìëŠ” "" ìŒë”°ì˜´í‘œë¡œ ê°ì‹¼ë‹¤. 
+        // printëŠ” ê¸€ì”¨ë¥¼ ì¶œë ¥í•´ì£¼ëŠ” ê¸°ëŠ¥ì´ë‹¤.
 
-        int number1 = 1; //º¯¼ö
-        int number2 = 2; //º¯¼ö
+        int number1 = 1; //ë³€ìˆ˜
+        int number2 = 2; //ë³€ìˆ˜
 
         print(number1 + number2);
 
@@ -25,7 +25,7 @@ public class PrintHelloWorld : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // ÁøÇàÁß¿¡ °ªÀÇ º¯È­¸¦ °è»ê
+        // ì§„í–‰ì¤‘ì— ê°’ì˜ ë³€í™”ë¥¼ ê³„ì‚°
         //print("1+1");
     }
 }

@@ -1,14 +1,14 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class FuncOperation : MonoBehaviour
 {
-    //º¯¼ö Å¸ÀÔ(int) º¯¼ö¸í(number1) = ÃÊ±â°ª(0);
-    public int number1 = 3; //public °ø°³
-    private int number2 = 2;    //private ºñ°ø°³
+    //ë³€ìˆ˜ íƒ€ì…(int) ë³€ìˆ˜ëª…(number1) = ì´ˆê¸°ê°’(0);
+    public int number1 = 3; //public ê³µê°œ
+    private int number2 = 2;    //private ë¹„ê³µê°œ
     int result = 0; 
 
-    //¹İÈ¯Çü(void) ÇÔ¼öÀÌ¸§(Add) () { }
-    int Add()  //µ¡¼À ÇÔ¼ö
+    //ë°˜í™˜í˜•(void) í•¨ìˆ˜ì´ë¦„(Add) () { }
+    int Add()  //ë§ì…ˆ í•¨ìˆ˜
     {
         result = number1 + number2;
         return result;
