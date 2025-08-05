@@ -15,6 +15,8 @@ public class SimpleMove : MonoBehaviour
 
     CharacterController controller;    //변수선언 : 빈그릇
 
+    public Animator anim;   //애니메이터 컴포넌트
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,6 +34,9 @@ public class SimpleMove : MonoBehaviour
         dir = new Vector3(h, 0, v);
         //정규화 Normalize = 방향을 유지하면서 벡터의 길이를 1로 고정 
         dir.Normalize();
+
+        anim.SetFloat("BlendX", h); //BlendX에 h 값을 전달
+        anim.SetFloat("BlendY", v); //BlendY에 v 값을 전달
 
         dir = Camera.main.transform.TransformDirection(dir);
         dir.y = 0;
