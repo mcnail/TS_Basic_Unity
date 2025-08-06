@@ -92,8 +92,8 @@ ModelImporter:
       name: jumpping
       takeName: mixamo.com
       internalID: -2061910772549006292
-      firstFrame: 35
-      lastFrame: 35
+      firstFrame: 25
+      lastFrame: 38
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
