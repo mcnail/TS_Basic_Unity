@@ -52,6 +52,15 @@ public class SimpleMove : MonoBehaviour
             isGrounded = true;
             yVelocity = 0;  //바닥에 닿으면 아래로 못내려가게 0
         }
+        //캐릭터 컨트롤러가 바닥에 닿았다는 신호가 아닐때!
+        if (controller.collisionFlags != CollisionFlags.Below)
+        {
+            if(isGrounded == true)
+            {
+                anim.SetTrigger("isFalling");
+            }
+            isGrounded = false;
+        }
 
         //바닥에 닿아있는게 맞고, 점프키를 누른게 맞다면
         if (isGrounded == true && Input.GetButtonDown("Jump"))

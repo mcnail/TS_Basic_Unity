@@ -63,7 +63,7 @@ ModelImporter:
       name: jump_start
       takeName: mixamo.com
       internalID: 4061839508520268033
-      firstFrame: 0
+      firstFrame: 10
       lastFrame: 24
       wrapMode: 0
       orientationOffsetY: 0
@@ -135,9 +135,9 @@ ModelImporter:
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
+      keepOriginalPositionY: 0
       keepOriginalPositionXZ: 0
-      heightFromFeet: 0
+      heightFromFeet: 1
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
