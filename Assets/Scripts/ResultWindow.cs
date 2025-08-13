@@ -26,7 +26,7 @@ public class ResultWindow : MonoBehaviour
     void Start()
     {
         int testNum = FuncNumbers(5,22);
-        print(testNum);
+        //print(testNum);
     }
 
     // Update is called once per frame
