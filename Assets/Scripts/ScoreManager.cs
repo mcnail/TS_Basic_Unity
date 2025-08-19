@@ -1,11 +1,11 @@
 using UnityEngine;
-using TMPro;
+//using TMPro;
 //점수관리
 public class ScoreManager : MonoBehaviour
 {
     public int stageScore = 0;
 
-    public TMP_Text tmTex;
+    //public TMP_Text tmTex;
 
     //싱글턴 패턴
     private static ScoreManager _instance; //앱 안에서 유일한 자리를 만들어라
@@ -30,7 +30,8 @@ public class ScoreManager : MonoBehaviour
     public void UpdateText(int score)
     {
         stageScore = stageScore + score;
-        tmTex.text = stageScore.ToString();
+        //tmTex.text = stageScore.ToString();
+        UIManager.Instance.uiScore.text = stageScore.ToString();
     }
 
     // Update is called once per frame
