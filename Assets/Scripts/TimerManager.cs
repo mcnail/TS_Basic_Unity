@@ -3,12 +3,12 @@ using UnityEngine;
 public class TimerManager : MonoBehaviour
 {
     float curTime = 0;
-    
     public float maxTime = 30; //목표시간
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         curTime = maxTime;
+        UIManager.Instance.resultObj.SetActive(false);
     }
 
     // Update is called once per frame
@@ -21,7 +21,15 @@ public class TimerManager : MonoBehaviour
             float min = Mathf.FloorToInt(curTime / 60);
             float sec = Mathf.FloorToInt(curTime % 60);
             string timeText = min.ToString() + ":" + sec.ToString();
-            print(timeText);
+            UIManager.Instance.timeText.text = timeText;
+        }
+        else
+        {
+            if(UIManager.Instance.resultObj.active == false)
+            {
+                UIManager.Instance.resultObj.SetActive(true);
+                UIManager.Instance.resultNums.text = ScoreManager.Instance.stageScore.ToString();
+            }
         }
     }
 }
