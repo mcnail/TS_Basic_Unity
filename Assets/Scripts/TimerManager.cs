@@ -9,6 +9,7 @@ public class TimerManager : MonoBehaviour
     {
         curTime = maxTime;
         UIManager.Instance.resultObj.SetActive(false);
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -22,6 +23,7 @@ public class TimerManager : MonoBehaviour
             float sec = Mathf.FloorToInt(curTime % 60);
             string timeText = min.ToString() + ":" + sec.ToString();
             UIManager.Instance.timeText.text = timeText;
+            UIManager.Instance.resultObj.SetActive(false);
         }
         else
         {

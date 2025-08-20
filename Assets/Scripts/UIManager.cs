@@ -24,6 +24,11 @@ public class UIManager : MonoBehaviour
         Instance = _instance;
     }
 
+    public void Init()
+    {
+        resultObj.SetActive(false);
+    }
+
     private void Start()
     {
         resultObj.SetActive(false);

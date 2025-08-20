@@ -7,7 +7,10 @@ public class ResultWindow : MonoBehaviour
 {
     public void RestartBtn()
     {
+        ScoreManager.Instance.Init();
+        UIManager.Instance.Init();
         SceneManager.LoadScene(1);  //현재씬을 다시 로드한다
+        SceneManager.LoadScene(2, LoadSceneMode.Additive);
     }
 
     public void QuitAppBtn()
@@ -25,7 +28,8 @@ public class ResultWindow : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        int testNum = FuncNumbers(5,22);
+        SceneManager.LoadScene(2, LoadSceneMode.Additive);
+        //int testNum = FuncNumbers(5,22);
         //print(testNum);
     }
 

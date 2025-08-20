@@ -9,7 +9,12 @@ public class ScoreManager : MonoBehaviour
 
     //싱글턴 패턴
     private static ScoreManager _instance; //앱 안에서 유일한 자리를 만들어라
-    public static ScoreManager Instance; 
+    public static ScoreManager Instance;
+
+    public void Init()
+    {
+        stageScore = 0;
+    }
 
     void Start()
     {
